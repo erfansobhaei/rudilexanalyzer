@@ -38,3 +38,7 @@ def print_grammar(grammar):
         tmp[0] = tmp[0] + " := "
         result = " ".join(tmp)
         print(result)
+
+
+grammar_comment = analyze_grammar("grammar_comment.txt")
+print_grammar(grammar_comment)
