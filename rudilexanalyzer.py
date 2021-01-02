@@ -30,3 +30,11 @@ def analyze_grammar(filepath):
         result.append(tokens_list)
 
     return result
+
+
+def print_grammar(grammar):
+    for rule in grammar:
+        tmp = list(rule)
+        tmp[0] = tmp[0] + " := "
+        result = " ".join(tmp)
+        print(result)
