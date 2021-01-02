@@ -1,5 +1,5 @@
 %Comment := %TraditionalComment
-%Comment := %EndOfLineComment
+%Comment = %EndOfLineComment
 
 %TraditionalComment := ~/ ~* %CommentTail
 
@@ -15,5 +15,4 @@
 
 %NotStarNotSlash := %InputCharacter
 %NotStarNotSlash := %LineTerminator
-
 %EndOfLineComment := ~/ ~/ %InputCharacter

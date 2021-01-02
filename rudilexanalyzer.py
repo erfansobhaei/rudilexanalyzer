@@ -1,20 +1,32 @@
 import re
 
 # Specifying grammar patterns
-pattern_list = [ r"~([^%~ ]*)", r"%([\w+][?\w]*)"]
-terminal_regex = re.compile(pattern_list[0])
-nonterminal_regex = re.compile(pattern_list[1])
-token_regex = re.compile(r"{}|{}".format(pattern_list[0],pattern_list[1]))
+pattern_list = [ r"~([^%~\n ]*)", r"%([\w+][?\w]*)"]
+token_regex = re.compile(r"{}|{}".format(pattern_list[1],pattern_list[0]))
 
-# Opening grammar file
-with open("grammar_comment.txt", 'r') as reader:
-    # Reading all lines
-    lines = reader.readlines()
+def analyze_grammar(filepath):
+    result = []
+    # Opening grammar file
+    with open(filepath, 'r') as reader:
+        # Reading all lines
+        lines = reader.readlines()
 
     # Removing blank lines
     while '\n' in lines: lines.remove('\n')
 
-    # Finding all terminals and nonterminals
-    tokens = token_regex.findall(s)
+    # Finding all tokens
+    for i in range(len(lines)):
+        tokens = token_regex.findall(lines[i])
+        tokens_list = []
 
-    
+        # Generating final list from entry
+        for token in tokens:
+            if (token[0]):
+                tokens_list.append("%"+token[0])
+            elif (token[1]):
+                tokens_list.append("~"+token[1])
+
+        # Adding new product rule
+        result.append(tokens_list)
+
+    return result
