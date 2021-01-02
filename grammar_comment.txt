@@ -1,0 +1,19 @@
+%Comment := %TraditionalComment
+%Comment := %EndOfLineComment
+
+%TraditionalComment := ~/ ~* %CommentTail
+
+%CommentTail := ~* %CommentTailStar
+%CommentTail := %NotStar %CommentTail
+
+%CommentTailStar := ~/
+%CommentTailStar := ~* %CommentTailStar
+%CommentTailStar := %NotStarNotSlash %CommentTail
+
+%NotStar := %InputCharacter
+%NotStar := %LineTerminator
+
+%NotStarNotSlash := %InputCharacter
+%NotStarNotSlash := %LineTerminator
+
+%EndOfLineComment := ~/ ~/ %InputCharacter
