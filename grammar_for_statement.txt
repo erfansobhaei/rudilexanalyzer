@@ -1,0 +1,8 @@
+%BasicForStatement := ~for ~( ~; ~; ~) %Statement
+%BasicForStatement := ~for ~( ~; ~; %ForUpdate ~) %Statement
+%BasicForStatement := ~for ~( ~; %Expression ~; ~) %Statement
+%BasicForStatement := ~for ~( ~; %Expression ~; %ForUpdate ~) %Statement
+%BasicForStatement := ~for ~( %ForInit ~; ~; ~) %Statement
+%BasicForStatement := ~for ~( %ForInit ~; ~; %ForUpdate ~) %Statement
+%BasicForStatement := ~for ~( %ForInit ~; %Expression ~; ~) %Statement
+%BasicForStatement := ~for ~( %ForInit ~; %Expression ~; %ForUpdate ~) %Statement
