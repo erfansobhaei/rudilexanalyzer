@@ -28,6 +28,6 @@ BreakStatement:
  ```
  
  ## How to Run Code Snippet
- It's just a python script. Provide grammar rules in a text file in the same directory. Then call ```analyze_grammar``` function for tokenizing grammar. There is an auxiliary function, ```print_grammar```, which is for printing line by line.
+ It's just a python script. Provide grammar rules in a text file in the same directory. Then call ```analyze_grammar``` function for tokenizing grammar. Its argument is path to the text file. There is an auxiliary function, ```print_grammar```, which is for printing grammar line by line. You could pass returned object of first call to the latter function in order to examine results.<br>
  
  This Project is a part of *Compiler Design* course which is one of *Kharazmi University*'s courses.
